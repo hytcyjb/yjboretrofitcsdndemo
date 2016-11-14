@@ -31,3 +31,5 @@
 ![效果图1](http://img.blog.csdn.net/20161030223411927)
 ![效果图2](http://img.blog.csdn.net/20161030223428864)
 ![效果图3](http://img.blog.csdn.net/20161030223438333)
+
+###1.csdn博客地址：[基于Retrofit2，okhttp3的数据缓存（cache）技术--深入挖掘](http://write.blog.csdn.net/mdeditor#!postId=52975183)
