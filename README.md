@@ -26,6 +26,7 @@
 ###效果如下：
 ![sample](https://github.com/hytcyjb/yjboretrofitcsdndemo/blob/master/运行效果.gif)
 
+###部分截图：
 ![效果图1](http://img.blog.csdn.net/20161030223411927)
 ![效果图2](http://img.blog.csdn.net/20161030223428864)
 ![效果图3](http://img.blog.csdn.net/20161030223438333)
