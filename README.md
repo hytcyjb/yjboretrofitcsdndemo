@@ -21,7 +21,9 @@
  * ```
  */
 
-  ###效果如下：
+
+
+###效果如下：
 ![sample](https://github.com/hytcyjb/yjboretrofitcsdndemo/blob/master/运行效果.gif)
 
 ![效果图1](http://img.blog.csdn.net/20161030223411927)
