@@ -1,9 +1,11 @@
 package yy.com.yjboretrofitcsdndemo;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -239,31 +241,66 @@ public class MainActivity extends AppCompatActivity {
      * @param type
      */
     public void showDialogFragment(String title, String msg, final int type) {
-        final SimpleDialog.Builder builder = new SimpleDialog.Builder() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);  //先得到构造器
+        builder.setTitle(title); //设置标题
+        builder.setMessage(msg); //设置内容
+        builder.setIcon(R.mipmap.ic_launcher);//设置图标，图片id即可
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() { //设置确定按钮
             @Override
-            public void onPositiveActionClicked(DialogFragment fragment) {
-                super.onPositiveActionClicked(fragment);
-                switch (type) {
-                    case 0:
-                        showKindAsk.setVisibility(View.VISIBLE);
-                        initGet();
-                        break;
-                    default:
-                        break;
-                }
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss(); //关闭dialog
+//                    Toast.makeText(MainActivity.this, "确认" + which, Toast.LENGTH_SHORT).show();
+                initGet();
             }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { //设置取消按钮
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Toast.makeText(MainActivity.this, "取消" + which, Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        builder.setNeutralButton("忽略", new DialogInterface.OnClickListener() {//设置忽略按钮
             @Override
-            public void onNegativeActionClicked(DialogFragment fragment) {
-                super.onNegativeActionClicked(fragment);
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Toast.makeText(MainActivity.this, "忽略" + which, Toast.LENGTH_SHORT).show();
             }
-        };
-        builder.message(msg)
-                .title(title)
-                .positiveAction("确定")
-                .negativeAction("取消");
-        fragment = DialogFragment.newInstance(builder);
-        fragment.show(MainActivity.this.getSupportFragmentManager(), null);
+        });
+        //参数都设置完成了，创建并显示出来
+        builder.create().show();
+
+        /**
+         * 这个弹窗是引用了第三方的，用了会报错，修改了
+         * @author yjbo
+         * @time 2016/12/25 20:43
+         */
+//        final SimpleDialog.Builder builder = new SimpleDialog.Builder() {
+//            @Override
+//            public void onPositiveActionClicked(DialogFragment fragment) {
+//                super.onPositiveActionClicked(fragment);
+//                switch (type) {
+//                    case 0:
+//                        showKindAsk.setVisibility(View.VISIBLE);
+//                        initGet();
+//                        break;
+//                    default:
+//                        break;
+//                }
+//            }
+//
+//            @Override
+//            public void onNegativeActionClicked(DialogFragment fragment) {
+//                super.onNegativeActionClicked(fragment);
+//            }
+//        };
+//        builder.message(msg)
+//                .title(title)
+//                .positiveAction("确定")
+//                .negativeAction("取消");
+//        fragment = DialogFragment.newInstance(builder);
+//        fragment.show(MainActivity.this.getSupportFragmentManager(), null);
     }
 
     private DialogFragment fragment;
@@ -310,5 +347,8 @@ public class MainActivity extends AppCompatActivity {
         }
 //        showKindAsk.setText("当前是：" + "\n1." + netGetStr + "\n2." + nonetGetStr);
         showDialogFragment("是否重新请求数据", "当前是：" + "\n1." + netGetStr + "\n2." + nonetGetStr, 0);
+//不要弹窗，下面就可以直接弹出来
+//        Toast.makeText(this, ""+"当前是：" + "\n1." + netGetStr + "\n2." + nonetGetStr, Toast.LENGTH_LONG).show();
+//        initGet();
     }
 }
