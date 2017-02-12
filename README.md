@@ -28,7 +28,7 @@
 a.封装请求的方法；
 
 b.重新设置了返回值的类型，现在可以定义自己想 要的class类了
-<font color=#0099ff size=5 face="黑体">color=#0099ff size=5 face="黑体"</font>
+
 ###4.效果如下：
 ![sample](https://github.com/hytcyjb/yjboretrofitcsdndemo/blob/master/运行效果.gif)
 
