@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
      * 1:特定时间之前请求有网请求好的数据；（（比如：特定时间为20s））
      */
     int nonetGet = 0;
-    int cacheTime = 60;
     @Bind(R.id.show_kind_ask)
     TextView showKindAsk;
 
@@ -91,10 +90,10 @@ public class MainActivity extends AppCompatActivity {
                             CommonUtil.toast(MainActivity.this, "数据请求成功", Gravity.TOP | Gravity.CENTER_HORIZONTAL);
                             NetWorkClass netWorkClass = response.body();
                             showResult.setText("时间：" +System.currentTimeMillis()
-                                    + "\n" + getTipStr(netGet,nonetGet)+"\n"
+                                    + "\n" + CommonUtil.getTipStr(netGet,nonetGet)+"\n"
                                     +netWorkClass.toString());
 
-                            showKindAsk.setText(getTipStr(netGet,nonetGet));
+                            showKindAsk.setText(CommonUtil.getTipStr(netGet,nonetGet));
                         } else {
                             showResult.setText(response.code() + "==onResponse--数据请求失败--");
                         }
@@ -178,27 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        showDialogFragment("是否重新请求数据",getTipStr(netGet,nonetGet),0);
+        showDialogFragment("是否重新请求数据",CommonUtil.getTipStr(netGet,nonetGet),0);
     }
-    private String getTipStr(final int netGet, final int nonetGet){
-        String netGetStr = "";
-        String nonetGetStr = "";
-        switch (netGet) {
-            case 0:
-                netGetStr = "有网实时更新";
-                break;
-            case 1:
-                netGetStr = "有网时设置缓存时间为" + cacheTime + "s,之后再次获取数据";
-                break;
-        }
-        switch (nonetGet) {
-            case 0:
-                nonetGetStr = "无网时不设置缓存时间，一直可以获取缓存";
-                break;
-            case 1:
-                nonetGetStr = "无网时设置缓存时间为" + cacheTime + "s,之后不能获取缓存";
-                break;
-        }
-        return "当前是：" + "\n1." + netGetStr + "\n2." + nonetGetStr;
-    }
+
 }

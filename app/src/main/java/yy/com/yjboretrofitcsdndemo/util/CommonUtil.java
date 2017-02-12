@@ -46,4 +46,37 @@ public class CommonUtil {
         }
         return false;
     }
+    /**
+     * 获取提示信息
+     * @author yjbo
+     * @time 2017/2/12 14:23
+     */
+    public static String getTipStr(final int netGet, final int nonetGet){
+        int cacheTime = setCacheTime;
+        String netGetStr = "";
+        String nonetGetStr = "";
+        switch (netGet) {
+            case 0:
+                netGetStr = "有网实时更新";
+                break;
+            case 1:
+                netGetStr = "有网时设置缓存时间为" + cacheTime + "s,之后再次获取数据";
+                break;
+        }
+        switch (nonetGet) {
+            case 0:
+                nonetGetStr = "无网时不设置缓存时间，一直可以获取缓存";
+                break;
+            case 1:
+                nonetGetStr = "无网时设置缓存时间为" + cacheTime + "s,之后不能获取缓存";
+                break;
+        }
+        return "当前是：" + "\n1." + netGetStr + "\n2." + nonetGetStr;
+    }
+    /**
+     * 设置缓存时间
+     * @author yjbo
+     * @time 2017/2/12 14:25
+     */
+    public static int  setCacheTime = 60;
 }

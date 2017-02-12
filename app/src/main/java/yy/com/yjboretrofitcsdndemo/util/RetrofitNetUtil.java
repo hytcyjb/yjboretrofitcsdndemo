@@ -42,7 +42,7 @@ public class RetrofitNetUtil {
 
     public static void requestData(final Context mcontext, String topUrl, String otherUrl, final int netGet, final int nonetGet) {
 
-        final int cacheTime = 60;
+        final int cacheTime = CommonUtil.setCacheTime;
         /***
          * 拦截器，保存缓存的方法
          * 2016年7月29日11:22:47
