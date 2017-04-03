@@ -21,8 +21,13 @@
  * 2.特定时间之前请求有网请求好的数据；（（比如：特定时间为20s））
  * ```
  */
+ 
+###*更新····
+<font color=#ff00ff size=8 >···2017年2月12日11:59:32</font>
 
+a.封装请求的方法；
 
+b.重新设置了返回值的类型，现在可以定义自己想 要的class类了
 
 ###4.效果如下：
 ![sample](https://github.com/hytcyjb/yjboretrofitcsdndemo/blob/master/运行效果.gif)
