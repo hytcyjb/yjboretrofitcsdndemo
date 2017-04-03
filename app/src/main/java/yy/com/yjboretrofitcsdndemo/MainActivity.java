@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<NetWorkClass> call, retrofit2.Response<NetWorkClass> response) {
                         if (response.isSuccessful()) {
-                            CommonUtil.toast(MainActivity.this, "数据请求成功", Gravity.TOP | Gravity.CENTER_HORIZONTAL);
+                            CommonUtil.toast(MainActivity.this, "数据请求成功", Gravity.CENTER | Gravity.CENTER_HORIZONTAL);
                             NetWorkClass netWorkClass = response.body();
                             showResult.setText("时间：" +System.currentTimeMillis()
                                     + "\n" + CommonUtil.getTipStr(netGet,nonetGet)+"\n"
